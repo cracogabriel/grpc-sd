@@ -1,0 +1,81 @@
+// ========================================================================================================================
+// Activity: RPC Activity - Movie Management | Distributed Systems | Universidade Tecnológica Federal do Paraná
+// Authors: Gabriel Craco Tasarz, Leonardo Jun'Ity Ozima
+// Professor: Prof. Rodrigo Campiolo
+// Release Date: May 10, 2026
+// Last Change At: May 12, 2026
+// ========================================================================================================================
+
+syntax = "proto3";
+
+package movies;
+
+option java_multiple_files = true;
+option java_package = "movies";
+
+// Represents a movie entity with all its metadata.
+message Movie {
+  string id            = 1;
+  string title         = 2;
+  string plot          = 3;
+  string fullplot      = 4;
+  repeated string genres     = 5;
+  repeated string cast       = 6;
+  repeated string directors  = 7;
+  repeated string countries  = 8;
+  repeated string languages  = 9;
+  string released      = 10;  // ISO 8601: "1903-12-01"
+  int32  runtime       = 11;
+  string rated         = 12;
+  int32  year          = 13;
+  string type          = 14;
+  string poster        = 15;
+  int32  num_mflix_comments = 16;
+  string lastupdated   = 17;
+}
+
+// Request to find or delete a movie by its unique ID.
+message MovieIdRequest {
+  string id = 1;
+}
+
+// Request to list movies featuring a specific actor.
+message ActorRequest {
+  string actor = 1;
+}
+
+// Request to list movies belonging to a specific genre.
+message GenreRequest {
+  string genre = 1;
+}
+
+// Response containing a single movie, used for get, create, and update operations.
+message MovieResponse {
+  bool   success = 1;
+  string error   = 2;   // Filled if success is false
+  Movie  movie   = 3;
+}
+
+// Response containing a list of movies, used for search operations.
+message MovieListResponse {
+  bool   success        = 1;
+  string error          = 2;
+  repeated Movie movies = 3;
+}
+
+// Response used for delete operations.
+message DeleteResponse {
+  bool   success = 1;
+  string error   = 2;
+  string message = 3;
+}
+
+// The gRPC service exposing operations to manage movies.
+service MovieService {
+  rpc CreateMovie(Movie) returns (MovieResponse);
+  rpc GetMovie(MovieIdRequest) returns (MovieResponse);
+  rpc UpdateMovie(Movie) returns (MovieResponse);
+  rpc DeleteMovie(MovieIdRequest) returns (DeleteResponse);
+  rpc ListByActor(ActorRequest) returns (MovieListResponse);
+  rpc ListByGenre(GenreRequest) returns (MovieListResponse);
+}

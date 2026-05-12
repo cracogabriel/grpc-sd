@@ -1,0 +1,43 @@
+# Java / Maven
+**/target/
+**/*.class
+**/*.jar
+**/*.war
+**/*.ear
+**/*.zip
+**/*.tar.gz
+**/*.rar
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/.env
+**/venv/
+**/env/
+**/ENV/
+**/.venv/
+**/.env/
+
+# gRPC/Protobuf Generated Python files
+**/movie_pb2.py
+**/movie_pb2_grpc.py
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+.nb-commonrc
+**/nbproject/private/
+**/nbproject/Makefile-genesis.properties
+**/nbproject/Package-*.bash
+
+# OS / System
+.DS_Store
+Thumbs.db
+desktop.ini
