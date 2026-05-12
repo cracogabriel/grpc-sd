@@ -45,14 +45,8 @@ You must create this file before running the server.
 **Create a `.env` file in the same folder as `server.py`:**
 
 ```
-DB_PASSWORD=your_mongodb_password_here
+DB_PASSWORD=mongodb_password_here
 ```
-
-> **Never share or commit your `.env` file.** Add it to `.gitignore`:
->
-> ```
-> echo ".env" >> .gitignore
-> ```
 
 The connection string uses the password to connect to MongoDB Atlas:
 
@@ -105,13 +99,13 @@ server/
 
 The server exposes a `MovieService` with the following RPC methods:
 
-| RPC Method      | Description                                                         |
-| --------------- | ------------------------------------------------------------------- |
-| `CreateMovie`   | Inserts a new movie. Requires `title` and `year`.                   |
-| `GetMovie`      | Fetches a single movie by MongoDB ID.                               |
-| `UpdateMovie`   | Updates a movie by ID. Requires `title` and `year`.                 |
-| `DeleteMovie`   | Deletes a movie by ID.                                              |
-| `ListByActor`   | Returns up to 20 movies matching the actor name (case-insensitive). |
-| `ListByGenre`   | Returns up to 20 movies matching the genre (case-insensitive).      |
+| RPC Method    | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| `CreateMovie` | Inserts a new movie. Requires `title` and `year`.                   |
+| `GetMovie`    | Fetches a single movie by MongoDB ID.                               |
+| `UpdateMovie` | Updates a movie by ID. Requires `title` and `year`.                 |
+| `DeleteMovie` | Deletes a movie by ID.                                              |
+| `ListByActor` | Returns up to 20 movies matching the actor name (case-insensitive). |
+| `ListByGenre` | Returns up to 20 movies matching the genre (case-insensitive).      |
 
 Errors are returned to the client in the respective response objects with `success = false` and a descriptive `error` message.
