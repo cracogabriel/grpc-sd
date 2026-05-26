@@ -1,4 +1,4 @@
-# RED: mflix Movie Manager
+# gRPC: mflix Movie Manager
 
 A distributed movie management system built with Python and Java as part of the Distributed Systems course.  
 The server exposes CRUD operations over **gRPC** using Protocol Buffers. The client is a Java Swing GUI that communicates with the server via gRPC stubs.
