@@ -102,3 +102,25 @@ The service is defined in `movie.proto` and shared between both sides.
 Each side generates its own language-specific classes (Python and Java) from the same `.proto` file using `protoc` (and Maven plugins).
 
 Unlike raw sockets, gRPC provides strongly-typed methods (e.g. `CreateMovie(Movie) returns (MovieResponse)`), automatically handling serialization, deserialization, and network transport via HTTP/2.
+
+---
+
+## Authors
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/GabrielCraco">
+        <img src="https://github.com/GabrielCraco.png" width="80px" alt="Gabriel Craco Tasarz"/><br/>
+        <sub><b>Gabriel Craco Tasarz</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/leonardoozima">
+        <img src="https://github.com/leonardoozima.png" width="80px" alt="Leonardo Jun'Ity Ozima"/><br/>
+        <sub><b>Leonardo Jun'Ity Ozima</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
